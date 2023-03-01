@@ -1,0 +1,51 @@
+contract:
+  name: funsocks_contract
+  type: standard
+  schema:
+    fields:
+      - name: name
+        type: string
+      - name: description
+        type: string
+      - name: thumbnail
+        type: ipfs-file
+    views:
+      - type: display
+        options:
+          name: name
+          description: description
+          thumbnail: thumbnail
+  account:
+    emulator: emulator-account
+    testnet: testnet-account
+    mainnet: mainnet-account
+
+collection:
+  name: funsocks
+  description: This is the funsocks project.
+  url: http://localhost:3000
+  images:
+    square: http://localhost:3000/square.png
+    banner: http://localhost:3000/banner.png
+  socials:
+    twitter: https://twitter.com/funsocks
+
+# Set one or more royalty receivers for your NFTs:
+#
+# royalties:
+#   emulator:
+#     - address: 0xf8d6e0586b0a20c7
+#       receiverPath: /public/flowTokenReceiver
+#       cut: 0.05 # 5%
+#   testnet:
+#     - address: ${FLOW_TESTNET_ADDRESS}
+#       receiverPath: /public/flowTokenReceiver
+#       cut: 0.05 # 5%
+#   mainnet:
+#     - address: ${FLOW_MAINNET_ADDRESS}
+#       receiverPath: /public/flowTokenReceiver
+#       cut: 0.05 # 5%
+
+ipfsPinningService:
+  endpoint: ${PINNING_SERVICE_ENDPOINT}
+  key: ${PINNING_SERVICE_KEY}
